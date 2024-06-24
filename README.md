@@ -172,7 +172,7 @@ export const config: MiddlewaresConfig = {
 ```
 
 <h2> More information </h2>
-<p> You can find the <code>RateLimitService</code> class in the <a href="https://github.com/perseidesjs/medusa-plugin-rate-limit/blob/main/src/services/rate-limit.service.ts">src/services/rate-limit.service.ts</a> file.</p>
+<p> You can find the <code>RateLimitService</code> class in the <a href="https://github.com/perseidesjs/medusa-plugin-rate-limit/blob/main/src/services/rate-limit.ts">src/services/rate-limit.ts</a> file.</p>
 
 <h2>License</h2>
 <p> This project is licensed under the MIT License - see the <a href="./LICENSE.md">LICENSE</a> file for details</p>
