@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "clean": "cross-env ./node_modules/.bin/rimraf dist",
-    "build": "cross-env npm run clean && tsc -p tsconfig.server.json",
+    "build": "cross-env npm run clean && tsc -p tsconfig.json",
     "watch": "cross-env tsc --watch",
     "test": "cross-env jest",
     "prettier:fix": "prettier --write ./src/**/*.ts"
