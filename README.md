@@ -11,6 +11,11 @@
   @perseidesjs/medusa-plugin-rate-limit
 </h1>
 
+<p align="center">
+  <img src="https://img.shields.io/npm/v/@perseidesjs/medusa-plugin-rate-limit" alt="npm version">
+  <img src="https://img.shields.io/github/license/perseidesjs/medusa-plugin-rate-limit" alt="GitHub license">
+</p>
+
 <h4 align="center">
   <a href="https://perseides.org">Website</a> |
   <a href="https://www.medusajs.com">Medusa</a>
