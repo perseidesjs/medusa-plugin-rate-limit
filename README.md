@@ -26,6 +26,20 @@
 </p>
 
 <h2>
+ Purpose
+</h2>
+
+<p>This plugin was mainly built to protect your MedusaJS application from abuse. This plugin allows you to easily manage request limits without stepping outside the familiar Medusa environment.</p>
+
+<h3>Why Rate Limiting Matters</h3>
+
+<ol>
+  <li><strong>Shield Against Attacks</strong>: Prevent Denial of Service (DoS) attempts by capping the number of requests from a single source.</li>
+  <li><strong>Boost Security</strong>: Thwart brute force attacks and other automated threats by controlling request frequency.</li>
+  <li><strong>Easy Setup</strong>: Seamlessly integrate rate limiting into your existing Medusa configuration files.</li>
+</ol>
+
+<h2>
   Installation
 </h2>
 
