@@ -8,7 +8,7 @@
   </a>
 </p>
 <h1 align="center">
-  @perseidesjs/auth-otp
+  @perseidesjs/medusa-plugin-rate-limit
 </h1>
 
 <h4 align="center">
