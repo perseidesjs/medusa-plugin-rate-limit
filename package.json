@@ -12,6 +12,8 @@
   "keywords": [
     "medusa",
     "medusa-plugin",
+    "medusa-v2",
+    "medusa-plugin-other",
     "rate-limit",
     "rate-limiting"
   ],
@@ -51,7 +53,7 @@
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@medusajs/framework": "^2.1.2"
+    "@medusajs/framework": "^2.0.0"
   },
   "packageManager": "yarn@4.9.2"
 }
