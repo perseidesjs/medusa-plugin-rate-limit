@@ -1,5 +1,11 @@
 # @perseidesjs/medusa-plugin-rate-limit
 
+## 2.1.1
+
+### Patch Changes
+
+- 0aaa241: Fixed README.md on NPM
+
 ## 2.1.0
 
 ### Minor Changes
