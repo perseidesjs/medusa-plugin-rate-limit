@@ -29,9 +29,12 @@
     "build:publish": "rimraf dist && tsc --build ./tsconfig.build.json",
     "watch": "tsc --watch",
     "prettier:fix": "prettier --write \"src/**/*.ts\"",
-    "lint:fix": "eslint \"src/**/*.ts\""
+    "lint:fix": "eslint \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build",
+    "release": "yarn build && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.5",
     "@epic-web/config": "^1.21.0",
     "@medusajs/framework": "^2.8.4",
     "@mikro-orm/core": "5.9.7",
