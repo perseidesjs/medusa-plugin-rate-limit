@@ -1,5 +1,5 @@
 ---
-"@fake-scope/fake-pkg": patch
+"@perseidesjs/medusa-plugin-rate-limit": patch
 ---
 
-chore: Update dependencies and configuration files
+- Upgraded devDependencies and Medusa peer dependency
