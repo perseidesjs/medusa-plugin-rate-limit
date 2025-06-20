@@ -1,5 +1,11 @@
 # @perseidesjs/medusa-plugin-rate-limit
 
+## 2.1.0
+
+### Minor Changes
+
+- 0f909a4: Upgraded dependencies
+
 ## 2.0.3
 
 ### Patch Changes
