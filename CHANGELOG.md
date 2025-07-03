@@ -1,5 +1,11 @@
 # @perseidesjs/medusa-plugin-rate-limit
 
+## 2.2.0
+
+### Minor Changes
+
+- ceb1e9b: Increased defaults values to `limit` and `window`
+
 ## 2.1.1
 
 ### Patch Changes
