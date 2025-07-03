@@ -5,7 +5,7 @@ export type PluginOptions = {
 }
 
 export const DEFAULT_OPTIONS: PluginOptions = {
-	limit: 5,
-	window: 60, // 1min
+	limit: 100, // Maximum number of requests allowed in the time window
+	window: 60 * 15, // 15 minutes (in seconds) - Time window for rate limiting
 	includeHeaders: true,
 }
