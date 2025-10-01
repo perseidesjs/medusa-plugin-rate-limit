@@ -30,15 +30,13 @@ export function ipRateLimit(options: Partial<PluginOptions> = {}) {
 		const ip = getIp(req)
 		const { success, remaining, limit } = await rateLimit.limit(ip)
 
+		res.setHeader("X-RateLimit-Limit", String(limit))
+		res.setHeader("X-RateLimit-Remaining", String(remaining))
+
 		if (!success) {
-			res.setHeader("X-RateLimit-Limit", String(limit))
-			res.setHeader("X-RateLimit-Remaining", String(remaining))
 			res.status(429).send("Too many requests, please try again later.")
 			return
 		}
-
-		res.setHeader("X-RateLimit-Limit", String(limit))
-		res.setHeader("X-RateLimit-Remaining", String(remaining))
 
 		next()
 	}
