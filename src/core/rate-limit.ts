@@ -36,7 +36,7 @@ export class RateLimit {
 	static readonly DEFAULT_OPTIONS: PluginOptions = {
 		limit: 100, // 100 requests per 15 minutes
 		window: 60 * 15, // 15 minutes
-		prefix: "rate-limit",
+		prefix: "rl",
 	}
 
 	protected readonly options_: PluginOptions
