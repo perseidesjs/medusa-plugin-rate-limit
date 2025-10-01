@@ -1,6 +1,6 @@
 {
 	"name": "@perseidesjs/medusa-plugin-rate-limit",
-	"version": "3.0.1-next.0",
+	"version": "3.0.0-next.0",
 	"description": "A simple rate-limit middleware for Medusa",
 	"author": "adevinwild",
 	"license": "MIT",
