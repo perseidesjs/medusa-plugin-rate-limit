@@ -7,7 +7,6 @@ import type { ICacheService } from "@medusajs/framework/types"
 import { Modules } from "@medusajs/framework/utils"
 
 import { type PluginOptions, RateLimit } from "../../core/rate-limit"
-import { getIp } from "../../utils/get-ip"
 
 /**
  * Default rate limit middleware that uses the IP address as the identifier
@@ -27,7 +26,7 @@ export function ipRateLimit(options: Partial<PluginOptions> = {}) {
 			options,
 		})
 
-		const ip = getIp(req)
+		const ip = (req.headers['x-forwarded-for'] || req.socket.remoteAddress) as string
 		const { success, remaining, limit } = await rateLimit.limit(ip)
 
 		res.setHeader("X-RateLimit-Limit", String(limit))
