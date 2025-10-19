@@ -1,6 +1,6 @@
 {
 	"name": "@perseidesjs/medusa-plugin-rate-limit",
-	"version": "3.0.0-next.1",
+	"version": "3.0.0",
 	"description": "A simple rate-limit middleware for Medusa",
 	"author": "adevinwild",
 	"license": "MIT",
@@ -31,7 +31,7 @@
 		"build:publish": "rimraf dist && tsc --build ./tsconfig.build.json",
 		"watch": "tsc --watch",
 		"format": "biome format --write",
-		"typecheck":"tsc -b --noEmit",
+		"typecheck": "tsc -b --noEmit",
 		"lint": "biome lint --write",
 		"prepublishOnly": "npm run build",
 		"version": "changeset version",
