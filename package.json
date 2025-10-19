@@ -36,7 +36,7 @@
 		"release": "yarn build && changeset publish"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.4",
+		"@biomejs/biome": "2.2.6",
 		"@changesets/cli": "^2.29.7",
 		"@epic-web/config": "^1.21.3",
 		"@medusajs/framework": "^2.10.3",
@@ -50,6 +50,8 @@
 		"cross-env": "^5.2.1",
 		"express": "^4.21.2",
 		"ioredis": "^5.8.0",
+		"prettier": "^3.6.2",
+		"prettier-plugin-tailwindcss": "^0.7.1",
 		"redis-memory-server": "^0.13.0",
 		"rimraf": "^5.0.10",
 		"supertest": "^7.1.4",
