@@ -31,6 +31,7 @@
 		"build:publish": "rimraf dist && tsc --build ./tsconfig.build.json",
 		"watch": "tsc --watch",
 		"format": "biome format --write",
+		"typecheck":"tsc -b --noEmit",
 		"lint": "biome lint --write",
 		"prepublishOnly": "npm run build",
 		"release": "yarn build && changeset publish"
