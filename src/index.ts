@@ -1,2 +1,3 @@
-export { defaultRateLimit } from './api/middlewares/default-rate-limit'
-export { configureDefaults } from './utils/configure-defaults'
+export { ipRateLimit } from "./api/middlewares/ip-rate-limit";
+export * from "./core/rate-limit";
+
