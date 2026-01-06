@@ -1,5 +1,11 @@
 # @perseidesjs/medusa-plugin-rate-limit
 
+## 3.1.0
+
+### Minor Changes
+
+- dfc39e3: Fixed the default ip-rate-limit middleware and do not use the x-forwarded-for header for the direct connection ip address instead
+
 ## 3.0.0
 
 ### Major Changes
