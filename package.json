@@ -38,30 +38,26 @@
 		"release": "yarn build && changeset publish"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.2.6",
-		"@changesets/cli": "^2.29.7",
+		"@biomejs/biome": "2.3.11",
+		"@changesets/cli": "^2.29.8",
 		"@epic-web/config": "^1.21.3",
-		"@medusajs/framework": "^2.10.3",
-		"@mikro-orm/core": "6.5.6",
-		"@mikro-orm/migrations": "6.5.6",
-		"@mikro-orm/postgresql": "6.5.6",
-		"@swc/core": "^1.13.20",
+		"@medusajs/framework": "^2.12.4",
+		"@swc/core": "^1.15.8",
 		"@types/ioredis": "^5.0.0",
 		"ajv": "^8.17.1",
-		"awilix": "^8.0.1",
 		"cross-env": "^5.2.1",
-		"express": "^4.21.2",
-		"ioredis": "^5.8.0",
-		"prettier": "^3.6.2",
-		"prettier-plugin-tailwindcss": "^0.7.1",
+		"express": "^4.22.1",
+		"ioredis": "^5.9.0",
+		"prettier": "^3.7.4",
+		"prettier-plugin-tailwindcss": "^0.7.2",
 		"redis-memory-server": "^0.13.0",
 		"rimraf": "^5.0.10",
-		"supertest": "^7.1.4",
+		"supertest": "^7.2.2",
 		"typescript": "^5.9.3",
 		"vitest": "^3.2.4"
 	},
 	"peerDependencies": {
-		"@medusajs/framework": "^2.10.3"
+		"@medusajs/framework": ">=2.12.4"
 	},
 	"packageManager": "yarn@4.9.4"
 }
