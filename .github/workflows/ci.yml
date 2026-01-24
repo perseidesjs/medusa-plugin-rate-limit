@@ -29,3 +29,12 @@ jobs:
 
       - name: Test
         run: yarn test
+
+      - name: Type Check
+        run: yarn typecheck
+
+      - name: Lint
+        run: yarn lint:check
+
+      - name: Format Check
+        run: yarn format:check
