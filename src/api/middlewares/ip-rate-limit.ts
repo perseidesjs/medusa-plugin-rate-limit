@@ -7,6 +7,7 @@ import type { ICacheService } from "@medusajs/framework/types"
 import { Modules } from "@medusajs/framework/utils"
 
 import { type PluginOptions, RateLimit } from "../../core/rate-limit"
+import { isValidIp, normalizeIp } from "../../utils/ip-validator"
 
 export type IpRateLimitOptions = Partial<PluginOptions> & {
 	/**
@@ -22,6 +23,8 @@ export type IpRateLimitOptions = Partial<PluginOptions> & {
 	trustProxy?: boolean | number
 }
 
+const FALLBACK_IP = "unknown"
+
 /**
  * Extracts the client IP address from the request
  * @param req - The request object
@@ -29,7 +32,8 @@ export type IpRateLimitOptions = Partial<PluginOptions> & {
  * @returns The client IP address
  */
 function getClientIp(req: MedusaRequest, trustProxy: boolean | number = false): string {
-	const directIp = req.socket.remoteAddress || "unknown"
+	const rawDirectIp = req.socket.remoteAddress || FALLBACK_IP
+	const directIp = isValidIp(rawDirectIp) ? normalizeIp(rawDirectIp) : FALLBACK_IP
 
 	if (!trustProxy) {
 		return directIp
@@ -40,22 +44,24 @@ function getClientIp(req: MedusaRequest, trustProxy: boolean | number = false): 
 		return directIp
 	}
 
-	const forwardedIps = (Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor)
+	const rawIps = (Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor)
 		.split(",")
 		.map((ip) => ip.trim())
 		.filter(Boolean)
+
+	// Filter to only valid IPs
+	const forwardedIps = rawIps.filter(isValidIp).map(normalizeIp)
 
 	if (forwardedIps.length === 0) {
 		return directIp
 	}
 
 	if (trustProxy === true) {
-		// Trust the leftmost IP (assumes proxy overwrites/sanitizes the header)
+		// Trust the leftmost valid IP
 		return forwardedIps[0]
 	}
 
 	// trustProxy is a number: count from the right
-	// e.g., trustProxy=1 means 1 proxy hop, so take the rightmost-1 IP (or the only IP if just one)
 	const index = Math.max(0, forwardedIps.length - trustProxy)
 	return forwardedIps[index] || directIp
 }
@@ -81,16 +87,26 @@ export function ipRateLimit(options: IpRateLimitOptions = {}) {
 		})
 
 		const ip = getClientIp(req, trustProxy)
-		const { success, remaining, limit } = await rateLimit.limit(ip)
 
-		res.setHeader("X-RateLimit-Limit", String(limit))
-		res.setHeader("X-RateLimit-Remaining", String(remaining))
+		try {
+			const { success, remaining, limit, resetAt } = await rateLimit.limit(ip)
 
-		if (!success) {
-			res.status(429).send("Too many requests, please try again later.")
-			return
+			res.setHeader("X-RateLimit-Limit", String(limit))
+			res.setHeader("X-RateLimit-Remaining", String(remaining))
+			res.setHeader("X-RateLimit-Reset", String(resetAt))
+
+			if (!success) {
+				const retryAfter = Math.max(1, resetAt - Math.floor(Date.now() / 1000))
+				res.setHeader("Retry-After", String(retryAfter))
+				res.status(429).send("Too many requests, please try again later.")
+				return
+			}
+
+			next()
+		} catch (error) {
+			// Fail-open: allow request on unexpected errors, log for visibility
+			console.error("[rate-limit] Error checking rate limit:", error)
+			next()
 		}
-
-		next()
 	}
 }
