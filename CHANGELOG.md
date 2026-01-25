@@ -1,5 +1,11 @@
 # @perseidesjs/medusa-plugin-rate-limit
 
+## 3.2.1
+
+### Patch Changes
+
+- d6e8d2f: Optimize bundle size by excluding test files and source maps from published package
+
 ## 3.2.0
 
 ### Minor Changes
