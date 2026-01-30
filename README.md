@@ -41,7 +41,7 @@ pnpm add @perseidesjs/medusa-plugin-rate-limit
 
 ## Documentation
 
-Access the full documentation at [docs.perseides.org/plugins/rate-limit](https://docs.perseides.org/plugins/rate-limit/getting-started)
+Access the full documentation at [https://docs.perseides.org/docs/plugins/rate-limit/getting-started](https://docs.perseides.org/docs/plugins/rate-limit/getting-started)
 
 ## License
 
